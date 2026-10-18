@@ -10,11 +10,12 @@ This project is part of the **ALPHAMAN-0** portfolio. Starter scaffold for a URL
 
 ```mermaid
 flowchart LR
-    A[User] --> B[Url Shorter Service]
-    B --> C{Logic}
-    C --> D[(Data)]
-    C --> E[Output]
-    D --> C
+    Client[Client] -->|HTTP| Express[Express server]
+    Express --> Routes[Route handlers]
+    Routes --> Mongo[(MongoDB)]
+    Routes --> Cache[(Redis)]
+    Express --> Auth[JWT middleware]
+    Auth --> Routes
 ```
 
 ## Tech Stack
